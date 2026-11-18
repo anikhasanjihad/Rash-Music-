@@ -138,7 +138,7 @@
     <string name="widget_previous">Poprzedni</string>
     <string name="widget_artwork">Okładka albumu</string>
     <string name="widget_nothing_played">Nic nie zostało odtworzone</string>
-    <string name="widget_open_bitchord">Open Rash Music</string>
+    <string name="widget_open_rashmusic">Open Rash Music</string>
     <string name="widget_preview_title">Tytuł utworu</string>
     <string name="widget_preview_artist">Artysta</string>
     <string name="widget_pill_label">Now playing 4×1</string>
@@ -165,7 +165,7 @@
     <string name="cancel_all">Anuluj wszystkie</string>
     <string name="language">Język</string>
     <string name="app_language">Język aplikacji</string>
-    <string name="app_language_description">Wybierz język używany przez Rash Music.</string>
+    <string name="app_language_description">Wybierz język używany przez RashMusic.</string>
     <string name="english">Angielski</string>
     <string name="spanish">Hiszpański</string>
     <string name="french">Francuski</string>
@@ -294,7 +294,7 @@
     <string name="discord_presence_footer">Karta aktualizuje się, gdy zmieni się utwór, pozycja lub stan odtwarzania. Znika, gdy odtwarzanie się zatrzyma.</string>
     <string name="discord_show_audio_quality">Pokaż jakość dźwięku</string>
     <string name="discord_show_audio_quality_subtitle">Parametry Hi-Res, bezstratne i Dolby na karcie statusu</string>
-    <string name="discord_sign_in_footer">Logowanie otwiera stronę logowania Discord. Nic nie jest wpisywane do Rash Music.</string>
+    <string name="discord_sign_in_footer">Logowanie otwiera stronę logowania Discord. Nic nie jest wpisywane do RashMusic.</string>
     <string name="discord_token">Token Discord</string>
     <string name="discord_token_description">Wklej token swojego konta Discord. Pozostaje on zaszyfrowany na tym urządzeniu i jest wysyłany tylko do Discorda.</string>
     <string name="discord_token_rejected">Discord odrzucił ten token.</string>
@@ -329,7 +329,7 @@
     <string name="downloads_finished">Pobieranie · zakończone</string>
     <string name="downloading_progress">Pobieranie · %1$d%%</string>
     <string name="starting">Rozpoczynanie</string>
-    <string name="saved_to_bitchord_folder">Zapisano w Music/Rash Music</string>
+    <string name="saved_to_rashmusic_folder">Zapisano w Music/RashMusic</string>
     <string name="nothing_downloading">Nic się nie pobiera</string>
     <string name="nothing_to_explore">Nie ma teraz nic do odkrycia</string>
     <string name="no_youtube_music_results">Brak wyników z YouTube Music</string>
@@ -613,7 +613,7 @@
     <string name="no_listening_history">brak historii odtwarzania</string>
     <string name="no_local_albums">Nic stąd jeszcze nie należy do albumu ani playlisty. Pobierz cały album lub playlistę, a pojawi się tutaj.</string>
     <string name="play_your_replay">Odtwórz swój Replay</string>
-    <string name="counted_on_device_with_bitchord">Obliczono na tym urządzeniu z Rash Music</string>
+    <string name="counted_on_device_with_rashmusic">Obliczono na tym urządzeniu z Rash Music</string>
     <string name="this_month">Ten miesiąc</string>
     <string name="this_year">Ten rok</string>
     <string name="all_time">Cały czas</string>
@@ -790,7 +790,7 @@
     <string name="listen_together_custom_server_dialog_message">Ta impreza działa na zewnętrznym serwerze:\n\n%1$s\n\nCzy chcesz zmienić serwer imprez i dołączyć do imprezy %2$s?</string>
     <string name="listen_together_custom_server_switch_and_join">Zmień i dołącz</string>
     <string name="listen_together_official_server_dialog_title">Przełączyć na oficjalny serwer?</string>
-    <string name="listen_together_official_server_dialog_message">Ta impreza działa na oficjalnym serwerze Rash Music.\n\nCzy chcesz wrócić na oficjalny serwer i dołączyć do imprezy %1$s?</string>
+    <string name="listen_together_official_server_dialog_message">Ta impreza działa na oficjalnym serwerze RashMusic.\n\nCzy chcesz wrócić na oficjalny serwer i dołączyć do imprezy %1$s?</string>
     <string name="listen_together_switch_failed_stayed_in_party">Nie udało się dołączyć do imprezy: %1$s. Pozostajesz na imprezie %2$s.</string>
     <string name="listen_together_switch_failed">Nie udało się dołączyć do imprezy: %1$s.</string>
     <string name="listen_together_ping">%1$d ms</string>
@@ -1313,7 +1313,7 @@
 
 
     <string name="source_needs_lossless_output">Wymaga wyjścia bezstratnego · użyj urządzenia obsługującego dźwięk bezstratny</string>
-    <string name="source_needs_update">Ten dodatek jest nieaktualny. Nadal działa, ale poproś jego twórcę o aktualizację zgodnie z najnowszą dokumentacją dodatków Rash Music.</string>
+    <string name="source_needs_update">Ten dodatek jest nieaktualny. Nadal działa, ale poproś jego twórcę o aktualizację zgodnie z najnowszą dokumentacją dodatków RashMusic.</string>
     <string name="source_outdated">Nieaktualny dodatek</string>
     <string name="source_needs_lossless_bt_codec">Wymaga wyjścia bezstratnego · Bluetooth używa %1$s; użyj urządzenia obsługującego dźwięk bezstratny</string>
     <string name="source_needs_lossless_bt_unknown">Wymaga wyjścia bezstratnego · nie można ustalić, jaki kodek Bluetooth jest używany</string>
@@ -1473,7 +1473,7 @@
     <string name="bit_perfect_output">Wyjście bit-perfect</string>
     <string name="bit_perfect_bypassed_footer">Wyjście bit-perfect jest gotowe, więc wyszarzone ustawienia są pomijane, a wersje Dolby Atmos nie są pobierane. Zadziałają ponownie po odłączeniu DAC lub wyłączeniu trybu.</string>
     <string name="bit_perfect_sheet_warning">Wysyła utwór do DAC bez zmian. Equalizer, normalizacja głośności, crossfade, Automix, szybkość odtwarzania i głośność Rash Music są pomijane.</string>
-    <string name="bit_perfect_mode_off_subtitle">Dźwięk przechodzi przez mikser Androida i efekty Rash Music.</string>
+    <string name="bit_perfect_mode_off_subtitle">Dźwięk przechodzi przez mikser Androida i efekty RashMusic.</string>
     <string name="bit_perfect_mode_usb_android">DAC USB</string>
     <string name="bit_perfect_mode_usb_android_subtitle">Android 14 otwiera DAC z częstotliwością i głębią bitową każdego utworu, bez miksowania i resamplingu.</string>
     <string name="bit_perfect_requires_android_14">Wymaga Androida 14 lub nowszego</string>

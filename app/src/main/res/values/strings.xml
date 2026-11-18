@@ -189,7 +189,7 @@
     <string name="widget_previous">Previous</string>
     <string name="widget_artwork">Album art</string>
     <string name="widget_nothing_played">Nothing played yet</string>
-    <string name="widget_open_bitchord">Open Rash Music</string>
+    <string name="widget_open_rashmusic">Open Rash Music</string>
     <string name="widget_preview_title">Song title</string>
     <string name="widget_preview_artist">Artist</string>
     <string name="widget_pill_label">Now playing 4×1</string>
@@ -224,7 +224,7 @@
     <string name="cancel_all">Cancel all</string>
     <string name="language">Language</string>
     <string name="app_language">App language</string>
-    <string name="app_language_description">Choose the language used by Rash Music.</string>
+    <string name="app_language_description">Choose the language used by RashMusic.</string>
     <!-- Hidden tester-code field: tap the App language title 10 times. Not translated: testers only. -->
     <string name="tester_code_title" translatable="false">Tester code</string>
     <string name="tester_code_message" translatable="false">For Rash Music testers. Lets addon verification work on this phone with an unlocked bootloader.</string>
@@ -487,7 +487,7 @@
     <string name="discord_presence_footer">The card updates when the track, position or playback state changes. It clears when playback stops.</string>
     <string name="discord_show_audio_quality">Show audio quality</string>
     <string name="discord_show_audio_quality_subtitle">Hi-Res, lossless and Dolby specs on the presence card</string>
-    <string name="discord_sign_in_footer">Signing in opens Discord\'s login page. Nothing is typed into Rash Music.</string>
+    <string name="discord_sign_in_footer">Signing in opens Discord\'s login page. Nothing is typed into RashMusic.</string>
     <string name="discord_token">Discord token</string>
     <string name="discord_token_description">Paste your Discord account token. It stays encrypted on this device and is sent only to Discord.</string>
     <string name="discord_token_rejected">Discord rejected that token.</string>
@@ -560,7 +560,7 @@
     <string name="shared_link">Shared link</string>
     <string name="opened_file">Opened file</string>
     <string name="radio_started">%1$s radio started</string>
-    <string name="saved_to_bitchord_folder">Saved to Music/Rash Music</string>
+    <string name="saved_to_rashmusic_folder">Saved to Music/RashMusic</string>
     <string name="nothing_downloading">Nothing downloading</string>
     <string name="nothing_to_explore">Nothing to explore right now</string>
     <string name="no_youtube_music_results">No results from YouTube Music</string>
@@ -927,7 +927,7 @@
     </plurals>
     <string name="no_local_albums">Nothing here belongs to an album or playlist yet. Download a complete album or playlist and it will appear here.</string>
     <string name="play_your_replay">Play your Replay</string>
-    <string name="counted_on_device_with_bitchord">Counted on this device with Rash Music</string>
+    <string name="counted_on_device_with_rashmusic">Counted on this device with Rash Music</string>
     <string name="this_month">This month</string>
     <string name="replay_this_week">This week</string>
     <string name="replay_period_weekly">Weekly</string>

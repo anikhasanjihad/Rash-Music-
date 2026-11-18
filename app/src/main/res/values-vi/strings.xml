@@ -144,7 +144,7 @@
     <string name="widget_previous">Trước</string>
     <string name="widget_artwork">Ảnh bìa album</string>
     <string name="widget_nothing_played">Chưa phát bài nào</string>
-    <string name="widget_open_bitchord">Mở Rash Music</string>
+    <string name="widget_open_rashmusic">Mở Rash Music</string>
     <string name="widget_preview_title">Tên bài hát</string>
     <string name="widget_preview_artist">Nghệ sĩ</string>
     <string name="widget_pill_label">Đang phát 4×1</string>
@@ -179,7 +179,7 @@
     <string name="cancel_all">Hủy tất cả</string>
     <string name="language">Ngôn ngữ</string>
     <string name="app_language">Ngôn ngữ ứng dụng</string>
-    <string name="app_language_description">Chọn ngôn ngữ sử dụng trong Rash Music.</string>
+    <string name="app_language_description">Chọn ngôn ngữ sử dụng trong RashMusic.</string>
     <string name="english">Tiếng Anh</string>
     <string name="spanish">Tiếng Tây Ban Nha</string>
     <string name="french">Tiếng Pháp</string>
@@ -335,7 +335,7 @@
     <string name="discord_presence_footer">Thẻ sẽ cập nhật khi bài hát, vị trí phát hoặc trạng thái phát thay đổi. Thẻ sẽ biến mất khi dừng phát.</string>
     <string name="discord_show_audio_quality">Hiển thị chất lượng âm thanh</string>
     <string name="discord_show_audio_quality_subtitle">Thông số Hi-Res, lossless và Dolby trên thẻ trạng thái</string>
-    <string name="discord_sign_in_footer">Đăng nhập sẽ mở trang đăng nhập của Discord. Không có thông tin nào được nhập vào Rash Music.</string>
+    <string name="discord_sign_in_footer">Đăng nhập sẽ mở trang đăng nhập của Discord. Không có thông tin nào được nhập vào RashMusic.</string>
     <string name="discord_token">Token Discord</string>
     <string name="discord_token_description">Dán mã token tài khoản Discord của bạn. Token được mã hóa an toàn trên thiết bị này và chỉ được gửi đến Discord.</string>
     <string name="discord_token_rejected">Discord đã từ chối token đó.</string>
@@ -372,7 +372,7 @@
     <string name="starting">Đang bắt đầu</string>
     <string name="start_radio">Phát radio</string>
     <string name="radio_started">Đã bắt đầu radio %1$s</string>
-    <string name="saved_to_bitchord_folder">Đã lưu vào Music/Rash Music</string>
+    <string name="saved_to_rashmusic_folder">Đã lưu vào Music/RashMusic</string>
     <string name="nothing_downloading">Không có nội dung đang tải</string>
     <string name="nothing_to_explore">Hiện không có gì để khám phá</string>
     <string name="no_youtube_music_results">Không có kết quả nào từ YouTube Music</string>
@@ -694,7 +694,7 @@
     </plurals>
     <string name="no_local_albums">Chưa có mục nào ở đây thuộc về một album hoặc danh sách phát. Tải xuống toàn bộ album hoặc danh sách phát và nội dung sẽ xuất hiện ở đây.</string>
     <string name="play_your_replay">Phát Replay của bạn</string>
-    <string name="counted_on_device_with_bitchord">Được thống kê trên thiết bị này bằng Rash Music</string>
+    <string name="counted_on_device_with_rashmusic">Được thống kê trên thiết bị này bằng Rash Music</string>
     <string name="this_month">Tháng này</string>
     <string name="this_year">Năm nay</string>
     <string name="all_time">Tất cả thời gian</string>
@@ -1190,7 +1190,7 @@
     <string name="prioritize_spotify_canvas_subtitle">Thử Spotify trước Apple Music và các nhà cung cấp ảnh bìa động khác</string>
 
     <string name="source_needs_lossless_output">Cần đầu ra lossless · hãy dùng thiết bị hỗ trợ lossless</string>
-    <string name="source_needs_update">Tiện ích này đã lỗi thời. Tiện ích vẫn hoạt động, nhưng hãy nhờ nhà phát triển cập nhật theo tài liệu tiện ích mới nhất của Rash Music.</string>
+    <string name="source_needs_update">Tiện ích này đã lỗi thời. Tiện ích vẫn hoạt động, nhưng hãy nhờ nhà phát triển cập nhật theo tài liệu tiện ích mới nhất của RashMusic.</string>
     <string name="source_outdated">Tiện ích lỗi thời</string>
     <string name="source_needs_lossless_bt_codec">Cần đầu ra lossless · Bluetooth đang dùng %1$s; hãy dùng thiết bị hỗ trợ lossless</string>
     <string name="source_needs_lossless_bt_unknown">Cần đầu ra lossless · không xác định được codec Bluetooth đang dùng</string>
@@ -1350,7 +1350,7 @@
     <string name="bit_perfect_output">Đầu ra bit-perfect</string>
     <string name="bit_perfect_bypassed_footer">Đầu ra bit-perfect đã sẵn sàng nên các cài đặt bị làm mờ sẽ được bỏ qua và các phiên bản Dolby Atmos không được yêu cầu. Chúng hoạt động lại khi ngắt kết nối DAC hoặc tắt chế độ này.</string>
     <string name="bit_perfect_sheet_warning">Gửi bản nhạc đến DAC mà không thay đổi. Bộ chỉnh âm, chuẩn hóa âm lượng, chuyển bài mượt, Automix, tốc độ phát và âm lượng của Rash Music được bỏ qua.</string>
-    <string name="bit_perfect_mode_off_subtitle">Âm thanh đi qua bộ trộn của Android và các hiệu ứng của Rash Music.</string>
+    <string name="bit_perfect_mode_off_subtitle">Âm thanh đi qua bộ trộn của Android và các hiệu ứng của RashMusic.</string>
     <string name="bit_perfect_mode_usb_android">DAC USB</string>
     <string name="bit_perfect_mode_usb_android_subtitle">Android 14 mở DAC ở tần số và độ sâu bit của từng bản nhạc, không trộn và không lấy mẫu lại.</string>
     <string name="bit_perfect_requires_android_14">Yêu cầu Android 14 trở lên</string>

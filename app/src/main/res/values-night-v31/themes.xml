@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Compose owns all theming; this just gives an edge-to-edge, action-bar-free window,
-         plus Rash Music's own system splash (Android 12+). The animated in-app splash
-         (RashSplash) takes over once the first frame is ready. -->
-    <style name="Theme.BitChord" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <!-- Dark system splash so it hands over seamlessly to the in-app Rash Music splash. -->
+    <style name="Theme.RashMusic" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">@android:color/black</item>
-        <item name="android:windowSplashScreenBackground">#FF050505</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_icon</item>
+        <item name="android:windowSplashScreenBackground">#07070C</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">#07070C</item>
     </style>
 </resources>
