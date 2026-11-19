@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.content.pm.ActivityInfo
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,12 +32,17 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.rash.music.R
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -96,6 +102,7 @@ fun AmbientModeScreen(
 
     val palette = rememberArtworkColors(song.thumbnailUrl)
     val scheme = MaterialTheme.colorScheme
+    val glassBorder = scheme.onBackground.copy(alpha = 0.14f)
 
     Box(
         Modifier
@@ -107,80 +114,118 @@ fun AmbientModeScreen(
             modifier = Modifier.fillMaxSize(),
             trackKey = song.videoId,
         )
-        // Pulls the mesh toward the theme's own background so text stays legible
-        // in both light and dark themes.
-        Box(Modifier.fillMaxSize().background(scheme.background.copy(alpha = 0.38f)))
+        // Pulls the mesh toward the theme's background so every text colour in
+        // here keeps its contrast in both the light and the dark theme, then a
+        // soft vignette toward the edges for depth.
+        Box(Modifier.fillMaxSize().background(scheme.background.copy(alpha = 0.52f)))
+        Box(
+            Modifier.fillMaxSize().background(
+                androidx.compose.ui.graphics.Brush.verticalGradient(
+                    listOf(Color.Transparent, scheme.background.copy(alpha = 0.35f)),
+                ),
+            ),
+        )
 
-        BoxWithConstraints(Modifier.fillMaxSize().safeDrawingPadding().padding(20.dp)) {
-            val artSize = minOf(maxHeight - 56.dp, maxWidth * 0.42f)
+        Column(
+            Modifier
+                .fillMaxSize()
+                .safeDrawingPadding()
+                .padding(horizontal = 24.dp, vertical = 12.dp),
+        ) {
+            // Header row of its own, so the close button never sits on the artwork.
             Row(
-                Modifier.fillMaxSize(),
-                horizontalArrangement = Arrangement.spacedBy(28.dp),
+                Modifier.fillMaxWidth().height(48.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Column(
-                    Modifier.width(artSize).fillMaxHeight(),
-                    horizontalAlignment = Alignment.Start,
-                    verticalArrangement = Arrangement.Center,
-                ) {
-                    val art = song.thumbnailUrl
-                    AsyncImage(
-                        model = art?.artworkAt(900),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .size(artSize)
-                            .clip(RoundedCornerShape(24.dp))
-                            .background(scheme.surfaceVariant),
-                    )
-                    Spacer(Modifier.height(10.dp))
-                    Text(
-                        text = song.title,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = scheme.onBackground,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                    Text(
-                        text = song.artist,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = scheme.onBackground.copy(alpha = 0.72f),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                }
                 Box(
                     Modifier
-                        .weight(1f)
-                        .fillMaxHeight()
-                        .clip(RoundedCornerShape(28.dp))
-                        .background(scheme.surface.copy(alpha = 0.22f)),
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(scheme.surface.copy(alpha = 0.72f))
+                        .border(1.dp, glassBorder, CircleShape)
+                        .clickable(onClick = onClose),
+                    contentAlignment = Alignment.Center,
                 ) {
-                    LyricsSidePanel(
-                        song = song,
-                        isPlaying = isPlaying,
-                        position = position,
-                        lyrics = lyrics,
-                        lyricsSource = lyricsSource,
-                        lyricsProviderStates = lyricsProviderStates,
-                        onSelectLyricsProvider = onSelectLyricsProvider,
-                        lyricsUnavailable = lyricsUnavailable,
-                        onSeek = onSeek,
-                        modifier = Modifier.fillMaxSize(),
+                    Icon(
+                        SfIcons.Close,
+                        contentDescription = stringResource(R.string.ambient_close),
+                        tint = scheme.onSurface,
+                        modifier = Modifier.size(20.dp),
                     )
                 }
+                Spacer(Modifier.width(14.dp))
+                Text(
+                    text = stringResource(R.string.ambient_mode),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.SemiBold,
+                    letterSpacing = 1.2.sp,
+                    color = scheme.onBackground.copy(alpha = 0.7f),
+                )
             }
-            Box(
-                Modifier
-                    .align(Alignment.TopStart)
-                    .size(36.dp)
-                    .clip(CircleShape)
-                    .background(scheme.onBackground.copy(alpha = 0.12f))
-                    .clickable(onClick = onClose),
-                contentAlignment = Alignment.Center,
-            ) {
-                Icon(SfIcons.Close, contentDescription = null, tint = scheme.onBackground, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.height(8.dp))
+
+            BoxWithConstraints(Modifier.fillMaxWidth().weight(1f)) {
+                val titleBlock = 64.dp
+                val artSize = minOf(maxHeight - titleBlock, maxWidth * 0.36f).coerceAtLeast(120.dp)
+                Row(
+                    Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.spacedBy(32.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(
+                        Modifier.width(artSize),
+                        horizontalAlignment = Alignment.Start,
+                    ) {
+                        AsyncImage(
+                            model = song.thumbnailUrl?.artworkAt(900),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .size(artSize)
+                                .shadow(28.dp, RoundedCornerShape(28.dp), clip = false)
+                                .clip(RoundedCornerShape(28.dp))
+                                .background(scheme.surfaceVariant)
+                                .border(1.dp, glassBorder, RoundedCornerShape(28.dp)),
+                        )
+                        Spacer(Modifier.height(14.dp))
+                        Text(
+                            text = song.title,
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = scheme.onBackground,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        Text(
+                            text = song.artist,
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = scheme.onBackground.copy(alpha = 0.7f),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                    Box(
+                        Modifier
+                            .weight(1f)
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(32.dp))
+                            .background(scheme.surface.copy(alpha = 0.42f))
+                            .border(1.dp, glassBorder, RoundedCornerShape(32.dp)),
+                    ) {
+                        LyricsSidePanel(
+                            song = song,
+                            isPlaying = isPlaying,
+                            position = position,
+                            lyrics = lyrics,
+                            lyricsSource = lyricsSource,
+                            lyricsProviderStates = lyricsProviderStates,
+                            onSelectLyricsProvider = onSelectLyricsProvider,
+                            lyricsUnavailable = lyricsUnavailable,
+                            onSeek = onSeek,
+                            modifier = Modifier.fillMaxSize().padding(horizontal = 14.dp, vertical = 10.dp),
+                        )
+                    }
+                }
             }
         }
     }
