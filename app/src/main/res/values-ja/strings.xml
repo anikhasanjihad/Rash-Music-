@@ -60,7 +60,7 @@
     <string name="artists">アーティスト</string>
     <string name="albums">アルバム</string>
     <string name="no_album_metadata">これらの曲はどのアルバムに属するか示されていません。</string>
-    <string name="search_empty">YouTube Musicで何百万もの曲を検索できます。</string>
+    <string name="search_empty">Rash Musicで何百万もの曲を検索できます。</string>
     <string name="recent_searches">最近の検索</string>
     <string name="clear">消去</string>
     <string name="search_hint">アーティスト、曲、歌詞など</string>
@@ -329,7 +329,7 @@
     <string name="saved_to_rashmusic_folder">Music/RashMusicに保存済み</string>
     <string name="nothing_downloading">ダウンロード中の項目はありません</string>
     <string name="nothing_to_explore">現在探索できるものはありません</string>
-    <string name="no_youtube_music_results">YouTube Musicからの結果はありません</string>
+    <string name="no_youtube_music_results">Rash Musicからの結果はありません</string>
     <string name="library_empty">ライブラリにはまだ何もありません</string>
     <string name="history_sign_in_required">これまでの再生履歴を見るにはログインしてください</string>
     <string name="history_empty">まだ何も再生されていません</string>

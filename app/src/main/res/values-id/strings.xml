@@ -60,7 +60,7 @@
     <string name="artists">Artis</string>
     <string name="albums">Album</string>
     <string name="no_album_metadata">Tidak ada trek ini yang menunjukkan asal albumnya.</string>
-    <string name="search_empty">Cari jutaan lagu di YouTube Music.</string>
+    <string name="search_empty">Cari jutaan lagu di Rash Music.</string>
     <string name="recent_searches">Pencarian terbaru</string>
     <string name="clear">Hapus</string>
     <string name="search_hint">Artis, Lagu, Lirik, dan Lainnya</string>
@@ -329,7 +329,7 @@
     <string name="saved_to_rashmusic_folder">Disimpan ke Music/RashMusic</string>
     <string name="nothing_downloading">Tidak ada yang sedang diunduh</string>
     <string name="nothing_to_explore">Belum ada yang bisa dijelajahi saat ini</string>
-    <string name="no_youtube_music_results">Tidak ada hasil dari YouTube Music</string>
+    <string name="no_youtube_music_results">Tidak ada hasil dari Rash Music</string>
     <string name="library_empty">Belum ada apa pun di perpustakaan Anda</string>
     <string name="history_sign_in_required">Masuk untuk melihat apa yang telah Anda dengarkan</string>
     <string name="history_empty">Belum ada yang diputar</string>

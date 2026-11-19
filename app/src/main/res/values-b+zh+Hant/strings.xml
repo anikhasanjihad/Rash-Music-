@@ -60,7 +60,7 @@
     <string name="artists">藝人</string>
     <string name="albums">專輯</string>
     <string name="no_album_metadata">這些曲目均未標明所屬專輯。</string>
-    <string name="search_empty">在 YouTube Music 上搜尋數百萬首歌曲。</string>
+    <string name="search_empty">在 Rash Music 上搜尋數百萬首歌曲。</string>
     <string name="recent_searches">最近搜尋</string>
     <string name="clear">清除</string>
     <string name="search_hint">藝人、歌曲、歌詞等</string>
@@ -328,7 +328,7 @@
     <string name="saved_to_rashmusic_folder">已儲存到 Music/RashMusic</string>
     <string name="nothing_downloading">當前沒有下載任務</string>
     <string name="nothing_to_explore">目前沒有可探索的內容</string>
-    <string name="no_youtube_music_results">YouTube Music 沒有搜尋結果</string>
+    <string name="no_youtube_music_results">Rash Music 沒有搜尋結果</string>
     <string name="library_empty">你的資料庫還是空的</string>
     <string name="history_sign_in_required">登入後即可檢視你的收聽記錄</string>
     <string name="history_empty">尚未播放過任何內容</string>

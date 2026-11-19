@@ -86,7 +86,7 @@
     <string name="artists">Artisti</string>
     <string name="albums">Album</string>
     <string name="no_album_metadata">Nessuno di questi brani indica da quale album proviene.</string>
-    <string name="search_empty">Cerca milioni di brani su YouTube Music.</string>
+    <string name="search_empty">Cerca milioni di brani su Rash Music.</string>
     <string name="recent_searches">Ricerche recenti</string>
     <string name="clear">Cancella</string>
     <string name="search_hint">Artisti, brani, testi e altro</string>
@@ -379,7 +379,7 @@
     <string name="saved_to_rashmusic_folder">Salvato in Musica/RashMusic</string>
     <string name="nothing_downloading">Nessun download in corso</string>
     <string name="nothing_to_explore">Niente da esplorare al momento</string>
-    <string name="no_youtube_music_results">Nessun risultato da YouTube Music</string>
+    <string name="no_youtube_music_results">Nessun risultato da Rash Music</string>
     <string name="library_empty">Ancora niente nella tua libreria</string>
     <string name="history_sign_in_required">Accedi per vedere cosa hai ascoltato</string>
     <string name="history_empty">Ancora niente riprodotto</string>

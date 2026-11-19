@@ -160,7 +160,7 @@
     <string name="retry">다시 시도</string>
     <string name="saved_to_youtube_music">YouTube Music에 저장됨</string>
     <string name="search">검색</string>
-    <string name="search_empty">YouTube Music에서 수많은 음악을 검색해 보세요.</string>
+    <string name="search_empty">Rash Music에서 수많은 음악을 검색해 보세요.</string>
     <string name="search_hint">아티스트, 음악, 가사 등</string>
     <string name="search_library_empty">로컬 음악 폴더에서 노래를 검색합니다.</string>
     <string name="search_library_hint">음악, 아티스트, 앨범</string>

@@ -64,7 +64,7 @@
     <string name="artists">कलाकार</string>
     <string name="albums">एल्बम</string>
     <string name="no_album_metadata">इनमें से कोई भी ट्रैक यह नहीं बताता कि वह किस एल्बम का है।</string>
-    <string name="search_empty">YouTube Music पर लाखों गाने खोजें।</string>
+    <string name="search_empty">Rash Music पर लाखों गाने खोजें।</string>
     <string name="recent_searches">हाल की खोजें</string>
     <string name="clear">साफ़ करें</string>
     <string name="search_hint">कलाकार, गाने, लिरिक्स और बहुत कुछ</string>
@@ -334,7 +334,7 @@
     <string name="saved_to_rashmusic_folder">Music/RashMusic में सेव किया गया</string>
     <string name="nothing_downloading">कुछ भी डाउनलोड नहीं हो रहा</string>
     <string name="nothing_to_explore">अभी एक्सप्लोर करने के लिए कुछ नहीं है</string>
-    <string name="no_youtube_music_results">YouTube Music से कोई नतीजे नहीं मिले</string>
+    <string name="no_youtube_music_results">Rash Music से कोई नतीजे नहीं मिले</string>
     <string name="library_empty">आपकी लाइब्रेरी में अभी कुछ नहीं है</string>
     <string name="history_sign_in_required">आपने क्या सुना है, यह देखने के लिए साइन इन करें</string>
     <string name="history_empty">अभी तक कुछ नहीं चलाया गया</string>

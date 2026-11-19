@@ -66,7 +66,7 @@
     <string name="artists">Artistas</string>
     <string name="albums">Álbuns</string>
     <string name="no_album_metadata">Nenhuma dessas faixas indica a qual álbum pertence.</string>
-    <string name="search_empty">Pesquise milhões de músicas no YouTube Music.</string>
+    <string name="search_empty">Pesquise milhões de músicas no Rash Music.</string>
     <string name="recent_searches">Pesquisas recentes</string>
     <string name="clear">Limpar</string>
     <string name="search_hint">Artistas, músicas, letras e mais</string>
@@ -336,7 +336,7 @@
     <string name="saved_to_rashmusic_folder">Salvo em Música/RashMusic</string>
     <string name="nothing_downloading">Nenhum download em andamento</string>
     <string name="nothing_to_explore">Nada para explorar agora</string>
-    <string name="no_youtube_music_results">Sem resultados do YouTube Music</string>
+    <string name="no_youtube_music_results">Sem resultados do Rash Music</string>
     <string name="library_empty">Nada em sua biblioteca ainda</string>
     <string name="history_sign_in_required">Faça login para ver o que você tem ouvido</string>
     <string name="history_empty">Nada reproduzido ainda</string>

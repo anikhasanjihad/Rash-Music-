@@ -68,7 +68,7 @@
     <string name="artists">Sanatçılar</string>
     <string name="albums">Albümler</string>
     <string name="no_album_metadata">Bu parçaların hiçbiri hangi albümden geldiğini belirtmiyor.</string>
-    <string name="search_empty">YouTube Music\'te milyonlarca şarkı arayın.</string>
+    <string name="search_empty">Rash Music\'te milyonlarca şarkı arayın.</string>
     <string name="recent_searches">Son aramalar</string>
     <string name="clear">Temizle</string>
     <string name="search_hint">Sanatçılar, Şarkılar, Sözler ve Daha Fazlası</string>
@@ -361,7 +361,7 @@
     <string name="saved_to_rashmusic_folder">Müzik/RashMusic klasörüne kaydedildi</string>
     <string name="nothing_downloading">İndirilen bir şey yok</string>
     <string name="nothing_to_explore">Şu anda keşfedilecek bir şey yok</string>
-    <string name="no_youtube_music_results">YouTube Music\'ten sonuç yok</string>
+    <string name="no_youtube_music_results">Rash Music\'ten sonuç yok</string>
     <string name="library_empty">Kitaplığında henüz bir şey yok</string>
     <string name="history_sign_in_required">Ne dinlediğini görmek için giriş yap</string>
     <string name="history_empty">Henüz bir şey çalınmadı</string>

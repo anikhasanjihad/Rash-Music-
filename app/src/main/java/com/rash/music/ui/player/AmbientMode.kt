@@ -5,6 +5,18 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.ActivityInfo
 import androidx.activity.compose.BackHandler
+import kotlinx.coroutines.delay
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -102,26 +114,49 @@ fun AmbientModeScreen(
 
     val palette = rememberArtworkColors(song.thumbnailUrl)
     val scheme = MaterialTheme.colorScheme
-    val glassBorder = scheme.onBackground.copy(alpha = 0.14f)
+    // The lyrics are drawn in white, so the surface behind them is always the
+    // artwork's own mesh pulled dark: each song tints it differently, and the
+    // text stays readable in any theme.
+    val ink = Color.White
+    val glassBorder = Color.White.copy(alpha = 0.22f)
+
+    // The header (close button + label) fades out after a few seconds and a
+    // tap anywhere brings it back.
+    var controlsVisible by remember { mutableStateOf(true) }
+    var tapCount by remember { mutableIntStateOf(0) }
+    LaunchedEffect(controlsVisible, tapCount) {
+        if (controlsVisible) {
+            delay(3500)
+            controlsVisible = false
+        }
+    }
+    val controlsAlpha by animateFloatAsState(
+        targetValue = if (controlsVisible) 1f else 0f,
+        animationSpec = tween(350),
+        label = "ambientControls",
+    )
 
     Box(
         Modifier
             .fillMaxSize()
-            .background(scheme.background),
+            .background(Color.Black)
+            .pointerInput(Unit) {
+                detectTapGestures {
+                    controlsVisible = true
+                    tapCount++
+                }
+            },
     ) {
         MeshGradientBackground(
             palette = palette,
             modifier = Modifier.fillMaxSize(),
             trackKey = song.videoId,
         )
-        // Pulls the mesh toward the theme's background so every text colour in
-        // here keeps its contrast in both the light and the dark theme, then a
-        // soft vignette toward the edges for depth.
-        Box(Modifier.fillMaxSize().background(scheme.background.copy(alpha = 0.52f)))
+        Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.5f)))
         Box(
             Modifier.fillMaxSize().background(
                 androidx.compose.ui.graphics.Brush.verticalGradient(
-                    listOf(Color.Transparent, scheme.background.copy(alpha = 0.35f)),
+                    listOf(Color.Transparent, Color.Black.copy(alpha = 0.35f)),
                 ),
             ),
         )
@@ -132,24 +167,23 @@ fun AmbientModeScreen(
                 .safeDrawingPadding()
                 .padding(horizontal = 24.dp, vertical = 12.dp),
         ) {
-            // Header row of its own, so the close button never sits on the artwork.
             Row(
-                Modifier.fillMaxWidth().height(48.dp),
+                Modifier.fillMaxWidth().height(48.dp).graphicsLayer { alpha = controlsAlpha },
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Box(
                     Modifier
                         .size(44.dp)
                         .clip(CircleShape)
-                        .background(scheme.surface.copy(alpha = 0.72f))
+                        .background(Color.Black.copy(alpha = 0.38f))
                         .border(1.dp, glassBorder, CircleShape)
-                        .clickable(onClick = onClose),
+                        .then(if (controlsAlpha > 0.05f) Modifier.clickable(onClick = onClose) else Modifier),
                     contentAlignment = Alignment.Center,
                 ) {
                     Icon(
                         SfIcons.Close,
                         contentDescription = stringResource(R.string.ambient_close),
-                        tint = scheme.onSurface,
+                        tint = ink,
                         modifier = Modifier.size(20.dp),
                     )
                 }
@@ -159,7 +193,7 @@ fun AmbientModeScreen(
                     style = MaterialTheme.typography.labelLarge,
                     fontWeight = FontWeight.SemiBold,
                     letterSpacing = 1.2.sp,
-                    color = scheme.onBackground.copy(alpha = 0.7f),
+                    color = ink.copy(alpha = 0.75f),
                 )
             }
             Spacer(Modifier.height(8.dp))
@@ -169,7 +203,7 @@ fun AmbientModeScreen(
                 val artSize = minOf(maxHeight - titleBlock, maxWidth * 0.36f).coerceAtLeast(120.dp)
                 Row(
                     Modifier.fillMaxSize(),
-                    horizontalArrangement = Arrangement.spacedBy(32.dp),
+                    horizontalArrangement = Arrangement.spacedBy(36.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Column(
@@ -192,39 +226,31 @@ fun AmbientModeScreen(
                             text = song.title,
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold,
-                            color = scheme.onBackground,
+                            color = ink,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
                         Text(
                             text = song.artist,
                             style = MaterialTheme.typography.bodyLarge,
-                            color = scheme.onBackground.copy(alpha = 0.7f),
+                            color = ink.copy(alpha = 0.72f),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
                     }
-                    Box(
-                        Modifier
-                            .weight(1f)
-                            .fillMaxHeight()
-                            .clip(RoundedCornerShape(32.dp))
-                            .background(scheme.surface.copy(alpha = 0.42f))
-                            .border(1.dp, glassBorder, RoundedCornerShape(32.dp)),
-                    ) {
-                        LyricsSidePanel(
-                            song = song,
-                            isPlaying = isPlaying,
-                            position = position,
-                            lyrics = lyrics,
-                            lyricsSource = lyricsSource,
-                            lyricsProviderStates = lyricsProviderStates,
-                            onSelectLyricsProvider = onSelectLyricsProvider,
-                            lyricsUnavailable = lyricsUnavailable,
-                            onSeek = onSeek,
-                            modifier = Modifier.fillMaxSize().padding(horizontal = 14.dp, vertical = 10.dp),
-                        )
-                    }
+                    // No card behind the lyrics: they sit straight on the tinted mesh.
+                    LyricsSidePanel(
+                        song = song,
+                        isPlaying = isPlaying,
+                        position = position,
+                        lyrics = lyrics,
+                        lyricsSource = lyricsSource,
+                        lyricsProviderStates = lyricsProviderStates,
+                        onSelectLyricsProvider = onSelectLyricsProvider,
+                        lyricsUnavailable = lyricsUnavailable,
+                        onSeek = onSeek,
+                        modifier = Modifier.weight(1f).fillMaxHeight(),
+                    )
                 }
             }
         }

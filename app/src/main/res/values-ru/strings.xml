@@ -72,7 +72,7 @@
     <string name="artists">Исполнители</string>
     <string name="albums">Альбомы</string>
     <string name="no_album_metadata">Ни один из этих треков не указывает свой альбом.</string>
-    <string name="search_empty">Ищите миллионы песен на YouTube Music.</string>
+    <string name="search_empty">Ищите миллионы песен на Rash Music.</string>
     <string name="recent_searches">Недавние запросы</string>
     <string name="clear">Очистить</string>
     <string name="search_hint">Исполнители, песни, тексты и многое другое</string>
@@ -344,7 +344,7 @@
     <string name="saved_to_rashmusic_folder">Сохранено в Музыка/RashMusic</string>
     <string name="nothing_downloading">Ничего не загружается</string>
     <string name="nothing_to_explore">Сейчас нечего смотреть в обзоре</string>
-    <string name="no_youtube_music_results">Нет результатов из YouTube Music</string>
+    <string name="no_youtube_music_results">Нет результатов из Rash Music</string>
     <string name="library_empty">В библиотеке пока ничего нет</string>
     <string name="history_sign_in_required">Войдите, чтобы увидеть, что вы слушали</string>
     <string name="history_empty">Пока ничего не воспроизводилось</string>

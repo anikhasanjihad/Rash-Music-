@@ -63,7 +63,7 @@
     <string name="artists">ศิลปิน</string>
     <string name="albums">อัลบั้ม</string>
     <string name="no_album_metadata">ไม่มีแทร็กใดระบุว่ามาจากอัลบั้มไหน</string>
-    <string name="search_empty">ค้นหาเพลงหลายล้านเพลงบน YouTube Music</string>
+    <string name="search_empty">ค้นหาเพลงหลายล้านเพลงบน Rash Music</string>
     <string name="recent_searches">การค้นหาล่าสุด</string>
     <string name="clear">ล้าง</string>
     <string name="search_hint">ศิลปิน เพลง เนื้อเพลง และอื่น ๆ</string>
@@ -355,7 +355,7 @@
     <string name="saved_to_rashmusic_folder">บันทึกลง Music/RashMusic แล้ว</string>
     <string name="nothing_downloading">ไม่มีการดาวน์โหลด</string>
     <string name="nothing_to_explore">ยังไม่มีอะไรให้สำรวจตอนนี้</string>
-    <string name="no_youtube_music_results">ไม่มีผลลัพธ์จาก YouTube Music</string>
+    <string name="no_youtube_music_results">ไม่มีผลลัพธ์จาก Rash Music</string>
     <string name="library_empty">ยังไม่มีอะไรในคลังเพลงของคุณ</string>
     <string name="history_sign_in_required">ลงชื่อเข้าใช้เพื่อดูสิ่งที่คุณเคยฟัง</string>
     <string name="history_empty">ยังไม่มีการเล่นเพลง</string>

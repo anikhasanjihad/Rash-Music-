@@ -91,7 +91,7 @@
     <string name="artists">아티스트</string>
     <string name="albums">앨범</string>
     <string name="no_album_metadata">출처 앨범을 명시한 음악이 없습니다.</string>
-    <string name="search_empty">YouTube Music의 수많은 곡들을 검색하세요.</string>
+    <string name="search_empty">Rash Music의 수많은 곡들을 검색하세요.</string>
     <string name="recent_searches">최근 검색</string>
     <string name="clear">지우기</string>
     <string name="search_hint">아티스트, 음악, 가사 등</string>
@@ -526,7 +526,7 @@
     <string name="saved_to_rashmusic_folder">Music/RashMusic에 저장 완료</string>
     <string name="nothing_downloading">다운로드 중인 항목 없음</string>
     <string name="nothing_to_explore">지금은 탐색할 항목 없음</string>
-    <string name="no_youtube_music_results">YouTube Music 내 결과 없음</string>
+    <string name="no_youtube_music_results">Rash Music 내 결과 없음</string>
     <string name="library_empty">아직 라이브러리에 아무것도 없음</string>
     <string name="history_sign_in_required">로그인하여 무엇을 들었는지 확인하세요</string>
     <string name="history_empty">아직 재생한 항목 없음</string>
