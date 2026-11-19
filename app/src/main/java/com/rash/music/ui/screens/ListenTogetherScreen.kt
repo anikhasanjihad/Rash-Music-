@@ -190,19 +190,19 @@ fun ListenTogetherScreen(
     /** The invite URL for a code, pointing at whichever server holds the party. */
     val inviteLinkFor: (String) -> String = { partyCode ->
         val host = ListenTogether.activePartyServerBase()
+        // Encoded in the QR only (never shown or shared as a web link): scanning
+        // it with any camera opens Rash Music straight into this room.
         if (host == null || host == ListenTogether.defaultServer) {
-            JamInviteLink.url(partyCode, null)
+            JamInviteLink.schemeUrl(partyCode, null)
         } else {
-            JamInviteLink.url(partyCode, host)
+            JamInviteLink.schemeUrl(partyCode, host)
         }
     }
 
     /** The system chooser, with the link and the spoken-aloud code together. */
     val shareInvite: () -> Unit = {
         state.code?.let { partyCode ->
-            val message = inviteLinkFor(partyCode) +
-                System.lineSeparator() + System.lineSeparator() +
-                context.getString(R.string.listen_together_share_text, partyCode)
+            val message = context.getString(R.string.listen_together_share_text, partyCode)
             context.startActivity(
                 Intent.createChooser(
                     Intent(Intent.ACTION_SEND).apply {

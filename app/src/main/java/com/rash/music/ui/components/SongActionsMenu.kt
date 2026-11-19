@@ -171,6 +171,8 @@ fun SongActionsMenu(
     onCopyLog: (() -> Unit)? = null,
     /** Opens the timing control offered only by the main player's menu. */
     onLyricsOffset: (() -> Unit)? = null,
+    /** Opens fullscreen Ambient Mode (artwork + lyrics, landscape). Player menu only. */
+    onAmbientMode: (() -> Unit)? = null,
     /**
      * Opens the Automix mix popup on the next transition. Null hides the row —
      * the player passes one only while Automix is on.
@@ -377,7 +379,7 @@ fun SongActionsMenu(
 
         // The player's own: about the track playing right now rather than
         // about the song as a thing in a library.
-        if (showSleepTimer || onLyricsOffset != null || onAutomixOverview != null || onCopyLog != null) {
+        if (showSleepTimer || onLyricsOffset != null || onAmbientMode != null || onAutomixOverview != null || onCopyLog != null) {
             if (startsGroup()) IosMenuSeparator()
             if (showSleepTimer) {
                 ActionRow(
@@ -386,6 +388,14 @@ fun SongActionsMenu(
                     value = sleepTimerStatus(),
                     accent = palette.accent,
                 ) { pickingSleepTimer = true }
+            }
+            onAmbientMode?.let {
+                ActionRow(
+                    icon = SfIcons.Fullscreen,
+                    label = stringResource(R.string.ambient_mode),
+                    accent = palette.accent,
+                    onClick = it,
+                )
             }
             // The same popup "Mixing" opens mid-blend, on the transition
             // still to come.

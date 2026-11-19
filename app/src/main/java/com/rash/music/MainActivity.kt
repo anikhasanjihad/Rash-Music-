@@ -359,6 +359,7 @@ import com.rash.music.ui.replay.ReplayStories
 import com.rash.music.ui.replay.ReplayStoryPage
 import com.rash.music.ui.replay.rememberReplayState
 import com.rash.music.ui.RashSplash
+import com.rash.music.ui.player.AmbientModeScreen
 import com.rash.music.ui.theme.RashMusicTheme
 import com.rash.music.ui.theme.rememberArtworkPalette
 import com.rash.music.data.canvas.AppleArtistArtRepository
@@ -682,6 +683,7 @@ private fun RashMusicApp(
     var discordDialog by remember { mutableStateOf<DiscordDialog?>(null) }
     var songActions by remember { mutableStateOf<Song?>(null) }
     var showLyricsOffset by remember { mutableStateOf(false) }
+    var showAmbient by rememberSaveable { mutableStateOf(false) }
     /**
      * Whether the track menu that is up was opened from the player.
      *
@@ -3618,20 +3620,10 @@ private fun RashMusicApp(
                                 showField = false,
                                 // The settings page's own two-state selector, so the
                                 // app has one look for "pick one of these".
-                                sourceSwitcher = {
-                                    SegmentedControl(
-                                        options = listOf(
-                                            stringResource(R.string.search_source_youtube),
-                                            stringResource(R.string.library),
-                                            stringResource(R.string.search_source_addons),
-                                        ),
-                                        selectedIndex = searchSource.ordinal,
-                                        onSelect = { index -> onSearchSourceChange(SearchSource.entries[index]) },
-                                    )
-                                },
-                                searchingLibrary = searchSource == SearchSource.LIBRARY,
+                                sourceSwitcher = null,
+                                searchingLibrary = false,
                                 libraryResults = libraryResults,
-                                searchingAddons = searchSource == SearchSource.ADDONS,
+                                searchingAddons = false,
                                 addonResults = addonResults,
                                 isBlocked = { song ->
                                     val configId = SourceRegistry.parseTrackKey(song.videoId)?.first
@@ -4641,6 +4633,15 @@ private fun RashMusicApp(
                     {
                         songActions = null
                         showLyricsOffset = true
+                    }
+                } else {
+                    null
+                },
+                onAmbientMode = if (fromPlayer) {
+                    {
+                        songActions = null
+                        dismissPlayer()
+                        showAmbient = true
                     }
                 } else {
                     null
@@ -5964,6 +5965,26 @@ private fun RashMusicApp(
             )
         }
 
+        // Ambient Mode: fullscreen artwork + lyrics, landscape while open.
+        if (showAmbient) {
+            val ambientSong = player.song
+            if (ambientSong == null) {
+                showAmbient = false
+            } else {
+                AmbientModeScreen(
+                    song = ambientSong,
+                    isPlaying = player.isPlaying,
+                    position = player.position,
+                    lyrics = lyrics,
+                    lyricsSource = lyricsSource,
+                    lyricsProviderStates = lyricsProviderStates,
+                    onSelectLyricsProvider = viewModel::selectLyricsProvider,
+                    lyricsUnavailable = lyricsChecked && lyrics.isNullOrEmpty(),
+                    onSeek = { target -> controller?.seekTo(target.coerceAtLeast(0L)) },
+                    onClose = { showAmbient = false },
+                )
+            }
+        }
     }
 }
 

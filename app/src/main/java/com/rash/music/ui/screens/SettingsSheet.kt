@@ -1801,7 +1801,6 @@ fun SettingsScreen(
                 withLink(LinkAnnotation.Url("https://t.me/+-Bo6KSNJWf9iNjQ", linkStyles)) {
                     append("Telegram")
                 }
-                append("\n~YouTube Music & Listen Together Backend")
             },
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

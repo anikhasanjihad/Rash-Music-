@@ -1,5 +1,6 @@
 package com.rash.music.ui.screens
 
+import androidx.compose.ui.text.withStyle
 import com.rash.music.ui.components.trackArtSize
 import com.rash.music.ui.components.contextClick
 import com.rash.music.ui.AppUi
@@ -482,11 +483,20 @@ private fun HomeTitle(
                 onClick = onFestiveLogoClick,
             )
         } else {
-            Icon(
-                painter = painterResource(Res.drawable.ic_logo),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onBackground,
-                modifier = logoModifier,
+            // The app's name, in the theme's own colours so it reads in light and dark.
+            Text(
+                text = androidx.compose.ui.text.buildAnnotatedString {
+                    append("Rash ")
+                    withStyle(androidx.compose.ui.text.SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                        append("Music")
+                    }
+                },
+                style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                ),
+                color = MaterialTheme.colorScheme.onBackground,
+                maxLines = 1,
+                modifier = Modifier.padding(bottom = 14.dp),
             )
         }
         // "Listen now" is hidden for now; the wordmark above stays.
