@@ -238,7 +238,8 @@ fun AmbientModeScreen(
                             overflow = TextOverflow.Ellipsis,
                         )
                     }
-                    // No card behind the lyrics: they sit straight on the tinted mesh.
+                    // No card behind the lyrics: they sit straight on the tinted mesh. The
+                    // globe / translate / source row hides with the close button.
                     LyricsSidePanel(
                         song = song,
                         isPlaying = isPlaying,
@@ -249,6 +250,7 @@ fun AmbientModeScreen(
                         onSelectLyricsProvider = onSelectLyricsProvider,
                         lyricsUnavailable = lyricsUnavailable,
                         onSeek = onSeek,
+                        controlsAlpha = controlsAlpha,
                         modifier = Modifier.weight(1f).fillMaxHeight(),
                     )
                 }

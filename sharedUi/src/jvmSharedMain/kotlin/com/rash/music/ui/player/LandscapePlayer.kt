@@ -512,6 +512,8 @@ internal fun LandscapeLyricsPane(
     romanizationToggle: @Composable () -> Unit,
     translationToggle: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    /** Fades the toggle + status row below the lines; at zero it is gone (and not tappable). */
+    bottomRowAlpha: Float = 1f,
     panel: @Composable (Modifier) -> Unit,
 ) {
     Column(modifier = modifier.fillMaxSize()) {
@@ -542,11 +544,15 @@ internal fun LandscapeLyricsPane(
         // where.
         if (picking) {
             Box(Modifier.fillMaxWidth()) { pickBar() }
+        } else if (bottomRowAlpha <= 0.02f) {
+            // Same height as the row so the lines don't shift when it fades out.
+            androidx.compose.foundation.layout.Spacer(Modifier.fillMaxWidth().padding(top = 10.dp).size(34.dp))
         } else {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 10.dp),
+                .padding(top = 10.dp)
+                .graphicsLayer { alpha = bottomRowAlpha },
             verticalAlignment = Alignment.CenterVertically,
         ) {
             // Fixed slots either side whether or not the toggles are drawn, so

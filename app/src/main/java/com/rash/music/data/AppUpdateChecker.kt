@@ -65,7 +65,14 @@ object AppUpdateChecker {
     @Volatile
     private var downloadCancelled = false
 
+    @Volatile
+    private var lastCheckMs = 0L
+
     suspend fun check() = withContext(Dispatchers.IO) {
+        // Called at start-up and on every return to the app; don't hit GitHub twice in a minute.
+        val now = System.currentTimeMillis()
+        if (now - lastCheckMs < 60_000L) return@withContext
+        lastCheckMs = now
         runCatching {
             val request = Request.Builder().url(LATEST_RELEASE_URL).build()
             val body = Http.client.newCall(request).execute().use { response ->

@@ -372,6 +372,7 @@ import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeSource
 import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
 import dev.chrisbanes.haze.materials.HazeMaterials
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
 import java.util.Locale
@@ -393,6 +394,13 @@ internal fun shouldSkipAfterDislike(
 
 
 class MainActivity : AppCompatActivity() {
+    override fun onStart() {
+        super.onStart()
+        // The ViewModel outlives the activity, so a check made only when it is
+        // created would miss a release published while the app sat in recents.
+        lifecycleScope.launch { AppUpdateChecker.check() }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

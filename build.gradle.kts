@@ -41,8 +41,8 @@ buildscript {
  * No "v" in the name — the in-app updater reads it as a number; the "v" is the
  * release tag's alone.
  */
-extra["rashmusicVersionCode"] = 2
-extra["rashmusicVersionName"] = "1.0.1"
+extra["rashmusicVersionCode"] = 1
+extra["rashmusicVersionName"] = "1.0.0"
 
 /*
  * Bump this by hand before cutting each sideloaded test build ("beta2",

@@ -46,6 +46,8 @@ fun LyricsSidePanel(
     lyricsUnavailable: Boolean,
     onSeek: (Long) -> Unit,
     modifier: Modifier = Modifier,
+    /** 1 shows the toggle / provider row under the lines, 0 hides it (Ambient Mode fades it with its header). */
+    controlsAlpha: Float = 1f,
 ) {
     val haptics = rememberHaptics()
     val lyricsOffsetMs by PlayerSettings.lyricsOffsetMs.collectAsStateWithLifecycle()
@@ -80,6 +82,7 @@ fun LyricsSidePanel(
                 },
                 status = lyricsTranslation.status,
                 onStatusClick = { showLyricsProviders = true },
+                bottomRowAlpha = controlsAlpha,
                 romanizationToggle = {
                     RomanizationToggleButton(
                         state = lyricsTranslation.romanizationState,
