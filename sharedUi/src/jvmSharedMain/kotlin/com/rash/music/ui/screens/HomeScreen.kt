@@ -483,21 +483,33 @@ private fun HomeTitle(
                 onClick = onFestiveLogoClick,
             )
         } else {
-            // The app's name, in the theme's own colours so it reads in light and dark.
-            Text(
-                text = androidx.compose.ui.text.buildAnnotatedString {
-                    append("Rash ")
-                    withStyle(androidx.compose.ui.text.SpanStyle(color = MaterialTheme.colorScheme.primary)) {
-                        append("Music")
-                    }
-                },
-                style = MaterialTheme.typography.headlineMedium.copy(
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                ),
-                color = MaterialTheme.colorScheme.onBackground,
-                maxLines = 1,
+            // The music-note mark followed by the app's name, both in the theme's
+            // own colours so they read in light and dark.
+            androidx.compose.foundation.layout.Row(
                 modifier = Modifier.padding(bottom = 14.dp),
-            )
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    painter = painterResource(Res.drawable.ic_logo),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.height(34.dp),
+                )
+                androidx.compose.foundation.layout.Spacer(Modifier.width(10.dp))
+                Text(
+                    text = androidx.compose.ui.text.buildAnnotatedString {
+                        append("Rash ")
+                        withStyle(androidx.compose.ui.text.SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                            append("Music")
+                        }
+                    },
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                    ),
+                    color = MaterialTheme.colorScheme.onBackground,
+                    maxLines = 1,
+                )
+            }
         }
         // "Listen now" is hidden for now; the wordmark above stays.
         // Text(
